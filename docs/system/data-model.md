@@ -34,6 +34,7 @@ MVP 핵심 엔티티는 아래와 같다.
 - `Notification`
 - `StatusHistory`
 - `AdminMemo`
+- `PricingPolicy`
 
 필요에 따라 주소를 별도 엔티티로 분리할 수 있지만, MVP에서는 `PickupRequest`와 `User` 안에 포함해도 충분하다.
 
@@ -67,6 +68,11 @@ MVP 핵심 엔티티는 아래와 같다.
 
 운영자가 요청에 남기는 내부 메모다.
 사용자에게 노출되면 안 된다.
+
+### 3.7 `PricingPolicy`
+
+품목 카테고리별 기본 가격 정책을 관리한다.
+초기 MVP에서는 어드민 UI 없이 시드 데이터와 DB 값으로 운영한다.
 
 ---
 
@@ -281,7 +287,29 @@ MVP 핵심 엔티티는 아래와 같다.
 
 ---
 
-## 11. Relationships
+## 11. `PricingPolicy` Model
+
+### Fields
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `id` | string | Yes | PK |
+| `category` | enum | Yes | unique, 품목 카테고리 기준 |
+| `basePrice` | integer | Yes | 카테고리 기본 가격 |
+| `isActive` | boolean | Yes | 활성 여부 |
+| `createdAt` | datetime | Yes | 생성 시각 |
+| `updatedAt` | datetime | Yes | 수정 시각 |
+
+### Notes
+
+- 1차 MVP에서는 가격정책 관리 UI 없이 DB 시드 데이터로 운영한다.
+- 가격 계산은 `PricingPolicy`를 기준으로 서버에서 수행한다.
+- 각 카테고리별 활성 정책은 동시에 하나만 유지한다.
+- 추후 어드민 가격정책 관리 화면이 추가되더라도 데이터 구조를 유지할 수 있다.
+
+---
+
+## 12. Relationships
 
 | From | Relation | To |
 | --- | --- | --- |
@@ -292,10 +320,11 @@ MVP 핵심 엔티티는 아래와 같다.
 | `PickupRequest` | 1:N | `StatusHistory` |
 | `PickupRequest` | 1:N | `AdminMemo` |
 | `PickupRequest` | 1:N | `Notification` |
+| `PricingPolicy` | 1:1 logical | `PickupItem.category` |
 
 ---
 
-## 12. Ownership and Visibility Rules
+## 13. Ownership and Visibility Rules
 
 - 사용자는 자신의 `PickupRequest`, `Notification`만 조회할 수 있다.
 - 관리자는 모든 `PickupRequest`를 조회할 수 있다.
@@ -305,7 +334,7 @@ MVP 핵심 엔티티는 아래와 같다.
 
 ---
 
-## 13. Minimal Schema Direction for MVP
+## 14. Minimal Schema Direction for MVP
 
 MVP 기준으로는 아래 구조면 충분하다.
 
@@ -315,12 +344,14 @@ MVP 기준으로는 아래 구조면 충분하다.
 - `notifications`
 - `status_histories`
 - `admin_memos`
+- `pricing_policies`
 
-세션 저장, 리프레시 토큰, 인증 로그 등은 실제 인증 방식에 따라 별도 추가할 수 있다.
+세션 저장소 Redis는 애플리케이션 인프라 영역으로 보고 업무 DB 스키마에는 포함하지 않는다.
+인증 로그 등 운영성 테이블은 필요 시 별도 추가할 수 있다.
 
 ---
 
-## 14. API Design Implications
+## 15. API Design Implications
 
 이 데이터 모델을 기준으로 아래 API 그룹이 자연스럽게 나온다.
 
@@ -344,8 +375,6 @@ MVP 기준으로는 아래 구조면 충분하다.
 
 ---
 
-## 15. Remaining Open Decisions
+## 16. Remaining Open Decisions
 
-- 실제 인증 구현을 세션 기반으로 둘지 JWT 기반으로 둘지
-- 가격 정책 값을 코드 상수로 둘지 테이블로 분리할지
 - 미결제 요청 자동 만료를 모델 레벨에서 어떻게 표현할지

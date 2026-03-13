@@ -16,7 +16,7 @@
 ## 1. API Design Principles
 
 - 사용자 API와 관리자 API는 경로와 권한으로 분리한다.
-- 인증이 필요한 API는 세션 또는 토큰 기반 인증을 전제로 한다.
+- 인증이 필요한 API는 세션 / httpOnly 쿠키 기반 인증을 전제로 한다.
 - 응답 구조는 최대한 일관되게 유지한다.
 - MVP에서는 구현 속도를 위해 지나치게 복잡한 쿼리 옵션은 제외한다.
 
@@ -27,7 +27,7 @@
 ### User API
 
 - `/api/auth/*`
-- `/api/me/*`
+- `/api/users/me`
 - `/api/pickup-requests/*`
 - `/api/notifications/*`
 
@@ -139,7 +139,7 @@
 
 ### Notes
 
-- 세션 쿠키 기반이면 응답 바디에 토큰이 없어도 된다.
+- 로그인 성공 시 서버는 세션을 생성하고 인증 쿠키를 설정한다.
 - 로그인 후 프론트는 `role`을 기준으로 사용자/관리자 UX를 분기할 수 있다.
 
 ---
@@ -158,9 +158,9 @@
 
 ---
 
-### 5.4 Get Current Session
+### 5.4 Get Current User
 
-`GET /api/auth/session`
+`GET /api/auth/me`
 
 ### Response Data
 
@@ -181,7 +181,7 @@
 
 ### 6.1 Get My Profile
 
-`GET /api/me`
+`GET /api/users/me`
 
 ### Response Data
 
@@ -201,7 +201,7 @@
 
 ### 6.2 Update My Profile
 
-`PATCH /api/me`
+`PATCH /api/users/me`
 
 ### Request Body
 
@@ -715,7 +715,7 @@
 ## 13. Authorization Rules
 
 - `/api/auth/*` 중 회원가입/로그인은 비인증 접근 허용
-- `/api/me/*`, `/api/pickup-requests/*`, `/api/notifications/*` 는 로그인 필요
+- `/api/auth/me`, `/api/users/me`, `/api/pickup-requests/*`, `/api/notifications/*` 는 로그인 필요
 - `/api/admin/*` 는 로그인 + `ADMIN` role 필요
 - 일반 사용자가 관리자 API 호출 시 `FORBIDDEN`
 
@@ -723,7 +723,6 @@
 
 ## 14. Open Decisions
 
-- 세션 기반 인증으로 갈지 JWT 기반으로 갈지
 - 결제 API를 request API에 통합할지 분리할지
 - 관리자 상태 변경 API를 action 기반으로 둘지 targetStatus 기반으로 둘지
 - 알림 읽음 처리를 단건만 할지 일괄 처리까지 넣을지
