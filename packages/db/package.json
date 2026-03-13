@@ -1,11 +1,21 @@
 {
   "name": "@pickup-service/db",
   "private": true,
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
-    "build": "echo \"packages/db build scaffold pending\"",
-    "lint": "echo \"packages/db lint scaffold pending\"",
-    "check-types": "echo \"packages/db typecheck scaffold pending\"",
-    "format": "echo \"packages/db format scaffold pending\"",
-    "clean": "rm -rf .turbo dist"
+    "build": "echo \"packages/db build setup pending\"",
+    "lint": "echo \"packages/db lint setup pending\"",
+    "check-types": "echo \"packages/db typecheck setup pending\"",
+    "format": "echo \"packages/db format setup pending\"",
+    "prisma:generate": "prisma generate",
+    "prisma:validate": "prisma validate",
+    "clean": "rimraf .turbo dist node_modules/.prisma"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.2"
+  },
+  "devDependencies": {
+    "prisma": "^6.19.2"
   }
 }

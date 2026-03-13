@@ -2,11 +2,37 @@
   "name": "@pickup-service/api",
   "private": true,
   "scripts": {
-    "dev": "node ./src/main.js",
-    "build": "echo \"apps/api build scaffold pending\"",
-    "lint": "echo \"apps/api lint scaffold pending\"",
-    "check-types": "echo \"apps/api typecheck scaffold pending\"",
-    "format": "echo \"apps/api format scaffold pending\"",
-    "clean": "rm -rf .turbo dist"
+    "dev": "node --watch --require ts-node/register --require tsconfig-paths/register src/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/main.js",
+    "lint": "echo \"apps/api lint setup pending\"",
+    "check-types": "tsc -p tsconfig.json --noEmit",
+    "format": "echo \"apps/api format setup pending\"",
+    "openapi:generate": "node --require ts-node/register --require tsconfig-paths/register src/scripts/generate-openapi.ts",
+    "clean": "rimraf .turbo dist"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.16",
+    "@nestjs/config": "^4.0.3",
+    "@nestjs/core": "^11.1.16",
+    "@nestjs/platform-express": "^11.1.16",
+    "@nestjs/swagger": "^11.2.6",
+    "@pickup-service/db": "workspace:^",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.4",
+    "connect-redis": "^9.0.0",
+    "cookie-parser": "^1.4.7",
+    "express-session": "^1.19.0",
+    "joi": "^18.0.2",
+    "redis": "^5.11.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.10",
+    "@types/express": "^5.0.6",
+    "@types/express-session": "^1.18.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
   }
 }

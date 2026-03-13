@@ -62,15 +62,15 @@
 
 ## 4. Phase 1. Backend Foundation
 
-- [ ] NestJS 기본 앱 설정
-- [ ] 공통 env/config 구조 설정
-- [ ] Prisma 초기 설정
+- [x] NestJS 기본 앱 설정
+- [x] 공통 env/config 구조 설정
+- [x] Prisma 초기 설정
 - [ ] Supabase PostgreSQL 연결
 - [ ] Redis 연결
-- [ ] 세션 / 쿠키 기본 설정
-- [ ] Swagger 설정
-- [ ] OpenAPI 산출 경로 고정
-- [ ] 공통 exception filter / validation pipe 설정
+- [x] 세션 / 쿠키 기본 설정
+- [x] Swagger 설정
+- [x] OpenAPI 산출 경로 고정
+- [x] 공통 exception filter / validation pipe 설정
 
 ### Done Condition
 
