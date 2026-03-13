@@ -49,6 +49,8 @@
 }
 ```
 
+- 아래 각 API의 `Response Data` 예시는 모두 `data` 필드 내부 payload 기준이다.
+
 ### Error Response
 
 ```json
@@ -152,7 +154,7 @@
 
 ```json
 {
-  "ok": true
+  "message": "로그아웃되었습니다."
 }
 ```
 
@@ -721,8 +723,8 @@
 
 ---
 
-## 14. Open Decisions
+## 14. Resolved Decisions For MVP
 
-- 결제 API를 request API에 통합할지 분리할지
-- 관리자 상태 변경 API를 action 기반으로 둘지 targetStatus 기반으로 둘지
-- 알림 읽음 처리를 단건만 할지 일괄 처리까지 넣을지
+- 결제 처리는 `POST /api/pickup-requests/:requestId/pay` 형태의 별도 API로 분리한다.
+- 관리자 상태 변경은 `action` 기반 요청으로 처리한다.
+- 알림 읽음 처리는 1차 MVP에서 단건 API만 제공하고, 일괄 읽음은 후속 단계로 미룬다.
