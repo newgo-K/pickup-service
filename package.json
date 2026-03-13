@@ -1,0 +1,16 @@
+{
+  "name": "pickup-service",
+  "private": true,
+  "packageManager": "pnpm@10.6.5",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "check-types": "turbo run check-types",
+    "format": "turbo run format",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.0"
+  }
+}

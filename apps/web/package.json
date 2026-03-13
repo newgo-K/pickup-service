@@ -1,0 +1,12 @@
+{
+  "name": "@pickup-service/web",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"apps/web dev scaffold pending\"",
+    "build": "echo \"apps/web build scaffold pending\"",
+    "lint": "echo \"apps/web lint scaffold pending\"",
+    "check-types": "echo \"apps/web typecheck scaffold pending\"",
+    "format": "echo \"apps/web format scaffold pending\"",
+    "clean": "rm -rf .turbo .next dist"
+  }
+}

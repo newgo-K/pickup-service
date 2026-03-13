@@ -1,0 +1,12 @@
+{
+  "name": "@pickup-service/admin",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"apps/admin dev scaffold pending\"",
+    "build": "echo \"apps/admin build scaffold pending\"",
+    "lint": "echo \"apps/admin lint scaffold pending\"",
+    "check-types": "echo \"apps/admin typecheck scaffold pending\"",
+    "format": "echo \"apps/admin format scaffold pending\"",
+    "clean": "rm -rf .turbo .next dist"
+  }
+}

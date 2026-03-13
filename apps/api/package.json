@@ -1,0 +1,12 @@
+{
+  "name": "@pickup-service/api",
+  "private": true,
+  "scripts": {
+    "dev": "node ./src/main.js",
+    "build": "echo \"apps/api build scaffold pending\"",
+    "lint": "echo \"apps/api lint scaffold pending\"",
+    "check-types": "echo \"apps/api typecheck scaffold pending\"",
+    "format": "echo \"apps/api format scaffold pending\"",
+    "clean": "rm -rf .turbo dist"
+  }
+}

@@ -41,18 +41,18 @@
 
 ## 3. Phase 0. Repository Setup
 
-- [ ] 모노레포 루트 초기화
-- [ ] `pnpm-workspace.yaml` 작성
-- [ ] `turbo.json` 작성
-- [ ] 루트 `package.json` workspace 스크립트 정리
-- [ ] `apps/web` 생성
-- [ ] `apps/admin` 생성
-- [ ] `apps/api` 생성
-- [ ] `packages/db` 생성
-- [ ] `packages/ui` 생성
-- [ ] `packages/api-client` 생성
-- [ ] `packages/config-typescript` 생성
-- [ ] `packages/config-eslint` 생성
+- [x] 모노레포 루트 초기화
+- [x] `pnpm-workspace.yaml` 작성
+- [x] `turbo.json` 작성
+- [x] 루트 `package.json` workspace 스크립트 정리
+- [x] `apps/web` 생성
+- [x] `apps/admin` 생성
+- [x] `apps/api` 생성
+- [x] `packages/db` 생성
+- [x] `packages/ui` 생성
+- [x] `packages/api-client` 생성
+- [x] `packages/config-typescript` 생성
+- [x] `packages/config-eslint` 생성
 
 ### Done Condition
 

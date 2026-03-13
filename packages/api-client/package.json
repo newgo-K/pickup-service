@@ -1,0 +1,11 @@
+{
+  "name": "@pickup-service/api-client",
+  "private": true,
+  "scripts": {
+    "build": "echo \"packages/api-client build scaffold pending\"",
+    "lint": "echo \"packages/api-client lint scaffold pending\"",
+    "check-types": "echo \"packages/api-client typecheck scaffold pending\"",
+    "format": "echo \"packages/api-client format scaffold pending\"",
+    "clean": "rm -rf .turbo dist"
+  }
+}

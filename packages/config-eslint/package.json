@@ -1,0 +1,7 @@
+{
+  "name": "@pickup-service/config-eslint",
+  "private": true,
+  "files": [
+    "base.js"
+  ]
+}

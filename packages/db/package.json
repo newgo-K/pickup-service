@@ -1,0 +1,11 @@
+{
+  "name": "@pickup-service/db",
+  "private": true,
+  "scripts": {
+    "build": "echo \"packages/db build scaffold pending\"",
+    "lint": "echo \"packages/db lint scaffold pending\"",
+    "check-types": "echo \"packages/db typecheck scaffold pending\"",
+    "format": "echo \"packages/db format scaffold pending\"",
+    "clean": "rm -rf .turbo dist"
+  }
+}

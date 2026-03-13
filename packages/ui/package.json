@@ -1,0 +1,11 @@
+{
+  "name": "@pickup-service/ui",
+  "private": true,
+  "scripts": {
+    "build": "echo \"packages/ui build scaffold pending\"",
+    "lint": "echo \"packages/ui lint scaffold pending\"",
+    "check-types": "echo \"packages/ui typecheck scaffold pending\"",
+    "format": "echo \"packages/ui format scaffold pending\"",
+    "clean": "rm -rf .turbo dist"
+  }
+}
